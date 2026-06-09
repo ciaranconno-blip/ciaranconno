@@ -1,17 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <title>AI Trainer — Build Your Coach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
 
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-dot">◆</span>
+        <span>AI <strong>TRAINER</strong></span>
+      </a>
+      <a href="#builder" class="nav-cta">Build Your Coach</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">YOUR AI PERSONAL TRAINER</p>
+      <h1 class="hero-title">MY BODY,<br>MY MIND,<br>MY LIFE</h1>
+      <p class="hero-subtitle">Connect your fitness devices. Let AI build the perfect plan.</p>
+      <div class="hero-actions">
+        <a href="#builder" class="btn btn-primary">BUILD MY PLAN</a>
+        <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════ HOW IT WORKS ══════════════ -->
+  <section class="hiw-section" id="how-it-works">
+    <div class="container">
+      <p class="eyebrow">◆ THE PROCESS</p>
+      <h2 class="hiw-title">How It Works</h2>
+      <div class="hiw-grid">
+        <div class="hiw-card">
+          <div class="hiw-num">01</div>
+          <h3>Answer 8 Questions</h3>
+          <p>Tell us your goal, experience, schedule, equipment, and which trackers you wear.</p>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-num">02</div>
+          <h3>Generate Your Prompt</h3>
+          <p>We build a custom system prompt that activates every Claude connector for your devices.</p>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-num">03</div>
+          <h3>Paste Into Claude</h3>
+          <p>Drop it into a Claude Project. Your AI coach reads your live biometric data and writes today's workout.</p>
+        </div>
+      </div>
+      <div class="hiw-badges">
+        <span>◆ OLYMPIC-GRADE METHODOLOGY</span>
+        <span>◆ FREE · NO SIGNUP</span>
+        <span>◆ 10-MIN SETUP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ BUILDER ══════════════ -->
+  <section class="builder-section" id="builder">
+    <div class="builder-header">
+      <div class="builder-brand">◆ AI COACH BUILDER</div>
+      <h2 class="builder-title">BUILD YOUR <em>AI COACH</em><br>IN 90 SECONDS</h2>
+      <p class="builder-sub">Generate a custom system prompt trained in <strong>elite athletics methodology</strong>. Paste it into a Claude Project. You'll have a coach that reads your device data and writes today's workout based on what your body actually needs.</p>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="progressText">0 / 8</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="questions-wrap">
+
+      <!-- Q1 -->
+      <div class="q-card" data-q="1">
+        <div class="q-num">Q1 / 08</div>
+        <h3 class="q-title">PRIMARY GOAL?</h3>
+        <p class="q-hint">This rewrites the entire priority stack of your coach.</p>
+        <div class="options" data-type="radio" data-key="goal">
+          <label class="option"><input type="radio" name="goal" value="longevity"><span class="opt-box"></span><span class="opt-label">Longevity + general health</span></label>
+          <label class="option"><input type="radio" name="goal" value="strength"><span class="opt-box"></span><span class="opt-label">Strength + muscle (hypertrophy / powerlifting)</span></label>
+          <label class="option"><input type="radio" name="goal" value="fat_loss"><span class="opt-box"></span><span class="opt-label">Fat loss + body composition</span></label>
+          <label class="option"><input type="radio" name="goal" value="athletic"><span class="opt-box"></span><span class="opt-label">Athletic performance (returning athlete or sport-specific)</span></label>
+          <label class="option"><input type="radio" name="goal" value="endurance"><span class="opt-box"></span><span class="opt-label">Endurance (running, cycling, hybrid)</span></label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-card" data-q="2">
+        <div class="q-num">Q2 / 08</div>
+        <h3 class="q-title">TRAINING EXPERIENCE?</h3>
+        <p class="q-hint">Calibrates intensity, RPE targets, recovery thresholds.</p>
+        <div class="options" data-type="radio" data-key="experience">
+          <label class="option"><input type="radio" name="experience" value="beginner"><span class="opt-box"></span><span class="opt-label">Beginner — under 1 year of consistent training</span></label>
+          <label class="option"><input type="radio" name="experience" value="intermediate"><span class="opt-box"></span><span class="opt-label">Intermediate — 1 to 3 years</span></label>
+          <label class="option"><input type="radio" name="experience" value="advanced"><span class="opt-box"></span><span class="opt-label">Advanced — 3 to 10 years</span></label>
+          <label class="option"><input type="radio" name="experience" value="elite"><span class="opt-box"></span><span class="opt-label">Elite / former competitive athlete</span></label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-card" data-q="3">
+        <div class="q-num">Q3 / 08</div>
+        <h3 class="q-title">SESSIONS PER WEEK?</h3>
+        <p class="q-hint">Drives the weekly programming structure.</p>
+        <div class="options" data-type="radio" data-key="sessions">
+          <label class="option"><input type="radio" name="sessions" value="3"><span class="opt-box"></span><span class="opt-label">3 sessions</span></label>
+          <label class="option"><input type="radio" name="sessions" value="4"><span class="opt-box"></span><span class="opt-label">4 sessions</span></label>
+          <label class="option"><input type="radio" name="sessions" value="5"><span class="opt-box"></span><span class="opt-label">5 sessions</span></label>
+          <label class="option"><input type="radio" name="sessions" value="6"><span class="opt-box"></span><span class="opt-label">6 or more sessions</span></label>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-card" data-q="4">
+        <div class="q-num">Q4 / 08</div>
+        <h3 class="q-title">SESSION LENGTH?</h3>
+        <p class="q-hint">How much time you can typically commit per session.</p>
+        <div class="options" data-type="radio" data-key="duration">
+          <label class="option"><input type="radio" name="duration" value="30-45"><span class="opt-box"></span><span class="opt-label">30 to 45 minutes</span></label>
+          <label class="option"><input type="radio" name="duration" value="45-60"><span class="opt-box"></span><span class="opt-label">45 to 60 minutes</span></label>
+          <label class="option"><input type="radio" name="duration" value="60-75"><span class="opt-box"></span><span class="opt-label">60 to 75 minutes</span></label>
+          <label class="option"><input type="radio" name="duration" value="75+"><span class="opt-box"></span><span class="opt-label">75+ minutes</span></label>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-card" data-q="5">
+        <div class="q-num">Q5 / 08</div>
+        <h3 class="q-title">EQUIPMENT AVAILABLE?</h3>
+        <p class="q-hint">Pick all that apply. Rewrites exercise selection rules.</p>
+        <div class="options" data-type="checkbox" data-key="equipment">
+          <label class="option"><input type="checkbox" name="equipment" value="full_gym"><span class="opt-box"></span><span class="opt-label">Full commercial gym</span></label>
+          <label class="option"><input type="checkbox" name="equipment" value="home_gym"><span class="opt-box"></span><span class="opt-label">Home gym (rack, barbell, plates)</span></label>
+          <label class="option"><input type="checkbox" name="equipment" value="dumbbells"><span class="opt-box"></span><span class="opt-label">Dumbbells / kettlebells</span></label>
+          <label class="option"><input type="checkbox" name="equipment" value="bands"><span class="opt-box"></span><span class="opt-label">Resistance bands</span></label>
+          <label class="option"><input type="checkbox" name="equipment" value="bodyweight"><span class="opt-box"></span><span class="opt-label">Bodyweight only</span></label>
+        </div>
+      </div>
+
+      <!-- Q6 — MULTI-SELECT TRACKERS -->
+      <div class="q-card q-card--highlight" data-q="6">
+        <div class="q-num">Q6 / 08</div>
+        <h3 class="q-title">WEARABLE / TRACKER?</h3>
+        <p class="q-hint">Pick <strong>all</strong> devices you own. Each one unlocks additional Claude connectors — more devices = smarter, more adaptive plan.</p>
+        <div class="options" data-type="checkbox" data-key="trackers">
+          <label class="option tracker-opt" data-connectors="apple_health_activity,apple_health_heart,apple_health_sleep,apple_health_mindfulness,apple_health_workouts">
+            <input type="checkbox" name="trackers" value="apple_watch">
+            <span class="opt-box"></span>
+            <span class="opt-label">Apple Watch
+              <span class="connector-pills">
+                <span class="cpill">Activity Rings</span><span class="cpill">Heart Rate</span><span class="cpill">Sleep</span><span class="cpill">ECG</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="whoop_recovery,whoop_strain,whoop_sleep,whoop_hrv,whoop_respiratory_rate">
+            <input type="checkbox" name="trackers" value="whoop">
+            <span class="opt-box"></span>
+            <span class="opt-label">Whoop
+              <span class="connector-pills">
+                <span class="cpill">Recovery Score</span><span class="cpill">Strain</span><span class="cpill">HRV</span><span class="cpill">Sleep Coach</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="oura_readiness,oura_sleep_score,oura_activity,oura_temperature,oura_hrv">
+            <input type="checkbox" name="trackers" value="oura">
+            <span class="opt-box"></span>
+            <span class="opt-label">Oura Ring
+              <span class="connector-pills">
+                <span class="cpill">Readiness</span><span class="cpill">Temperature</span><span class="cpill">Sleep</span><span class="cpill">HRV</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="garmin_activities,garmin_vo2max,garmin_stress,garmin_body_battery,garmin_sleep,garmin_training_status">
+            <input type="checkbox" name="trackers" value="garmin">
+            <span class="opt-box"></span>
+            <span class="opt-label">Garmin
+              <span class="connector-pills">
+                <span class="cpill">VO2 Max</span><span class="cpill">Body Battery</span><span class="cpill">Training Status</span><span class="cpill">GPS</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="fitbit_steps,fitbit_sleep,fitbit_heart_zones,fitbit_calories,fitbit_active_zone_minutes">
+            <input type="checkbox" name="trackers" value="fitbit">
+            <span class="opt-box"></span>
+            <span class="opt-label">Fitbit
+              <span class="connector-pills">
+                <span class="cpill">Heart Zones</span><span class="cpill">Sleep Stages</span><span class="cpill">Active Minutes</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="polar_training_load,polar_nightly_recharge,polar_orthostatic,polar_running_index">
+            <input type="checkbox" name="trackers" value="polar">
+            <span class="opt-box"></span>
+            <span class="opt-label">Polar
+              <span class="connector-pills">
+                <span class="cpill">Training Load</span><span class="cpill">Nightly Recharge</span><span class="cpill">Running Index</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="strava_activities,strava_segments,strava_power_zones,strava_training_load">
+            <input type="checkbox" name="trackers" value="strava">
+            <span class="opt-box"></span>
+            <span class="opt-label">Strava
+              <span class="connector-pills">
+                <span class="cpill">Activities</span><span class="cpill">Power Zones</span><span class="cpill">Segment Times</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="samsung_health_workout,samsung_health_sleep,samsung_health_stress,samsung_health_body_composition">
+            <input type="checkbox" name="trackers" value="samsung">
+            <span class="opt-box"></span>
+            <span class="opt-label">Samsung Health
+              <span class="connector-pills">
+                <span class="cpill">Workouts</span><span class="cpill">Stress</span><span class="cpill">Body Composition</span>
+              </span>
+            </span>
+          </label>
+          <label class="option tracker-opt" data-connectors="">
+            <input type="checkbox" name="trackers" value="no_tracker">
+            <span class="opt-box"></span>
+            <span class="opt-label">No tracker — give me a smart static program</span>
+          </label>
+        </div>
+        <p class="tracker-note" id="connectorCount"></p>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-card" data-q="7">
+        <div class="q-num">Q7 / 08</div>
+        <h3 class="q-title">INJURIES OR LIMITATIONS?</h3>
+        <p class="q-hint">Optional. Anything to work around. Leave blank if none.</p>
+        <textarea class="q-textarea" id="injuries" placeholder="e.g. lower back sensitivity, recent knee injury, training for a marathon in 12 weeks..."></textarea>
+      </div>
+
+      <!-- Q8 -->
+      <div class="q-card" data-q="8">
+        <div class="q-num">Q8 / 08</div>
+        <h3 class="q-title">ANYTHING ELSE YOUR COACH SHOULD KNOW?</h3>
+        <p class="q-hint">Optional. Personal context, lifestyle, anything that matters.</p>
+        <textarea class="q-textarea" id="extra" placeholder="e.g. I'm 43, was quite fit playing football for 20+ years, trying to get back into it now and want to build up to a sub 20 min 5k..."></textarea>
+      </div>
+
+    </div><!-- /questions-wrap -->
+
+    <!-- GENERATE BUTTON -->
+    <div class="generate-wrap">
+      <button class="btn-generate" id="generateBtn" onclick="generatePrompt()">
+        GENERATE MY COACH PROMPT →
+      </button>
+      <p class="generate-hint" id="generateHint">Complete all required questions to generate your prompt</p>
+    </div>
+
+  </section>
+
+  <!-- ══════════════ PROMPT OUTPUT ══════════════ -->
+  <section class="output-section" id="output" style="display:none;">
+    <div class="container">
+      <p class="eyebrow">◆ YOUR PERSONALISED SYSTEM PROMPT</p>
+      <h2 class="output-title">PASTE INTO A CLAUDE PROJECT</h2>
+      <p class="output-sub">This prompt activates all connectors for your selected devices. Paste it as the <strong>System Prompt</strong> in a new Claude Project — then start chatting to get your plan.</p>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-card-label">◆ CLAUDE SYSTEM PROMPT — READY TO COPY</span>
+          <button class="copy-btn" id="copyBtn" onclick="copyPrompt()">
+            <span id="copyBtnText">COPY PROMPT</span>
+          </button>
+        </div>
+        <pre class="prompt-pre" id="promptOutput"></pre>
+      </div>
+
+      <div class="connectors-activated" id="connectorsActivated"></div>
+
+      <div class="next-steps-card">
+        <h3>◆ NEXT STEPS</h3>
+        <ol>
+          <li>Click <strong>COPY PROMPT</strong> above</li>
+          <li>Go to <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> → <strong>Projects</strong> → <strong>New Project</strong></li>
+          <li>Paste as the <strong>Project Instructions / System Prompt</strong></li>
+          <li>Claude will request access to each device connector — approve them all</li>
+          <li>Ask: <em>"Write today's training session based on my current data"</em></li>
+        </ol>
+      </div>
+
+      <div class="rebuild-wrap">
+        <button class="btn-rebuild" onclick="scrollToBuilder()">← Rebuild My Prompt</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="logo-dot">◆</span>
+        <strong> AI TRAINER</strong>
+        <p>Powered by Claude AI. Built for athletes and everyday movers alike.</p>
+      </div>
+      <div class="footer-note">
+        <p>◆ OLYMPIC-GRADE METHODOLOGY &nbsp;·&nbsp; FREE · NO SIGNUP &nbsp;·&nbsp; 10-MIN SETUP</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>
