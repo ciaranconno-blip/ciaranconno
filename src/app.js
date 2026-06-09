@@ -4,25 +4,36 @@ window.addEventListener('scroll', () => {
 });
 
 // ── Option selection (radio + checkbox) ───────────────────────────
-document.querySelectorAll('.options').forEach(group => {
+document.querySelectorAll('.opts').forEach(group => {
   const type = group.dataset.type;
-  group.querySelectorAll('.option').forEach(opt => {
+  group.querySelectorAll('.opt').forEach(opt => {
     opt.addEventListener('click', () => {
       const input = opt.querySelector('input');
       if (type === 'radio') {
-        group.querySelectorAll('.option').forEach(o => {
-          o.classList.remove('is-selected');
+        group.querySelectorAll('.opt').forEach(o => {
+          o.classList.remove('is-on');
           o.querySelector('input').checked = false;
         });
         input.checked = true;
-        opt.classList.add('is-selected');
+        opt.classList.add('is-on');
       } else {
         input.checked = !input.checked;
-        opt.classList.toggle('is-selected', input.checked);
+        opt.classList.toggle('is-on', input.checked);
       }
       updateProgress();
       updateTrackerCount();
     });
+  });
+});
+
+// ── Tracker card selection ─────────────────────────────────────────
+document.querySelectorAll('.tracker-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const input = card.querySelector('input');
+    input.checked = !input.checked;
+    card.classList.toggle('is-on', input.checked);
+    updateProgress();
+    updateTrackerCount();
   });
 });
 
@@ -42,9 +53,9 @@ function updateTrackerCount() {
 function getSelectedConnectors() {
   const connectors = new Set();
   document.querySelectorAll('[name="trackers"]:checked').forEach(inp => {
-    const label = inp.closest('.tracker-opt');
-    if (label && label.dataset.connectors) {
-      label.dataset.connectors.split(',').filter(Boolean).forEach(c => connectors.add(c));
+    const card = inp.closest('.tracker-card');
+    if (card && card.dataset.connectors) {
+      card.dataset.connectors.split(',').filter(Boolean).forEach(c => connectors.add(c));
     }
   });
   return [...connectors];
